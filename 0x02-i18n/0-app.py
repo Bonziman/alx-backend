@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 """
-a basic flask application
+A Basic flask application
 """
-
-from flask import Flask, render_template
-
-app = flask(__name__)
-app.url_map.strict_slashes = False
+from flask import Flask
+from flask import render_template
 
 
-@app.route('/')
-def get_index() -> str:
-    """The home/index page.
+app = Flask(__name__)
+
+
+@app.route('/', strict_slashes=False)
+def index() -> str:
+    """
+    Renders a basic html template
     """
     return render_template('0-index.html')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
